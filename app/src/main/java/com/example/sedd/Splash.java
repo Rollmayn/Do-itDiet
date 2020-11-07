@@ -33,7 +33,7 @@ public class Splash extends AppCompatActivity {
 
     //function to open Login activity once button clicked
     public void openLogin(){
-        Intent startApp = new Intent(Splash.this, Login.class);
+        Intent startApp = new Intent(Splash.this, signin.class);
         startActivity(startApp);
     }
 }
