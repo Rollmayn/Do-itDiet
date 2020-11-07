@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile_icon"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/nav_diary"
+            android:icon="@drawable/diary_icon"
+            android:title="Diary" />
+
+        <item
+            android:id="@+id/nav_tracker"
+            android:icon="@drawable/progress_icon"
+            android:title="Tracker" />
+
+    </group>
+
+    <item android:title="More options">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/settings_icon"
+                android:title="Settings" />
+
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/aboutus_icon"
+                android:title="About Us" />
+
+        </menu>
+
+    </item>
+
+</menu>
