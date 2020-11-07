@@ -16,6 +16,7 @@
         android:src="@mipmap/app_logo" />
 
     <TextView
+        android:id="@+id/signupTxt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -25,7 +26,7 @@
         android:textSize="40dp" />
 
     <TextView
-        android:id="@+id/signupTxt"
+        android:id="@+id/signupTxt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -17,7 +17,7 @@ public class signin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         //Initializes application in fullscreen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);#
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
@@ -31,6 +31,6 @@ public class signin extends AppCompatActivity {
 
     public void startAccount() {
         Intent open = new Intent(this, signup.class);
-        startActivity();
+        startActivity(open);
     }
 }
