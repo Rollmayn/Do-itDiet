@@ -71,7 +71,7 @@ public class signup extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(signup.this, "Account created!", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplicationContext(), home.class));
+                            startActivity(new Intent(getApplicationContext(), homepage.class));
 
                         } else {
                             Toast.makeText(signup.this, "Error occurred. Please try again later..." + task.getException().getMessage(), Toast.LENGTH_LONG).show();

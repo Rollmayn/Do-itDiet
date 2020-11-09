@@ -59,7 +59,7 @@ public class signin extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(signin.this, "Logged in!!", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplicationContext(), home.class));
+                            startActivity(new Intent(getApplicationContext(), homepage.class));
                         } else {
                             Toast.makeText(signin.this, "Error occurred. Please try again." + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
