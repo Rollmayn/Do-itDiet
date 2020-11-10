@@ -42,7 +42,8 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:includeFontPadding="false"
                 android:text="Home"
-                android:textSize="35dp" />
+                android:textSize="35dp"
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 
@@ -66,10 +67,21 @@
                         android:text="DATE"
                         android:layout_centerInParent="true"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textSize="30dp"/>
+                        android:textSize="17dp"
+                        android:textStyle="bold"/>
 
 
                 </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/recTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommended Articles"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

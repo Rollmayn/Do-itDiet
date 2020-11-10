@@ -48,6 +48,24 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
         TextView textViewDate = findViewById(R.id.textViewDate);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+
+        //calls navDrawer function
+        navDrawer();
+
+
+        //display current date and time
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
+        textViewDate.setText(currentDate);
+
+    }
+
+    //Nav drawer functions
+    private void navDrawer() {
+        //menu drawer
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
         menuIcon = findViewById(R.id.menu_icon);
 
         menuIcon.setOnClickListener(new View.OnClickListener() {
@@ -58,24 +76,27 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
                 } else drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-        navDrawer();
-
-        //display current date and time
-        Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
-        textViewDate.setText(currentDate);
-
     }
 
-    private void navDrawer() {
-        //menu drawer
-        navigationView.bringToFront();
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else
+            super.onBackPressed();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.nav_home){
+            startActivity(new Intent(homepage.this, homepage.class));
+        }
+        else if(item.getItemId() == R.id.nav_diary){
+            startActivity(new Intent(homepage.this, diary.class));
+        }
+        else if(item.getItemId() == R.id.nav_tracker){
+            startActivity(new Intent(homepage.this, diary.class));
+        }
         return true;
     }
 }
