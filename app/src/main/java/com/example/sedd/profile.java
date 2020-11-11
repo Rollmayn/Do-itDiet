@@ -1,15 +1,9 @@
 package com.example.sedd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,21 +11,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
-public class homepage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     //Variables
     TextView textViewDate;
-    ImageView menuIcon;
+    ImageView menu_icon;
 
     //Drawer variables
     DrawerLayout drawerLayout;
@@ -40,7 +31,7 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_profile);
         //Initializes application in fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -57,18 +48,17 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
         textViewDate.setText(currentDate);
-
     }
 
     //Nav drawer functions
     private void navDrawer() {
         //menu drawer
         navigationView.bringToFront();
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
-        menuIcon = findViewById(R.id.menu_icon);
+        navigationView.setNavigationItemSelectedListener(profile.this);
+        navigationView.setCheckedItem(R.id.nav_profile);
+        menu_icon = findViewById(R.id.menu_icon);
 
-        menuIcon.setOnClickListener(new View.OnClickListener() {
+        menu_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
@@ -89,17 +79,18 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.nav_home){
-            startActivity(new Intent(homepage.this, homepage.class));
+            startActivity(new Intent(profile.this, homepage.class));
         }
         else if(item.getItemId() == R.id.nav_diary){
-            startActivity(new Intent(homepage.this, diary.class));
+            startActivity(new Intent(profile.this, diary.class));
         }
         else if(item.getItemId() == R.id.nav_tracker){
-            startActivity(new Intent(homepage.this, stepcounter.class));
+            startActivity(new Intent(profile.this, stepcounter.class));
         }
         else if(item.getItemId() == R.id.nav_profile){
-            startActivity(new Intent(homepage.this, profile.class));
+            startActivity(new Intent(profile.this, profile.class));
         }
         return true;
     }
+
 }

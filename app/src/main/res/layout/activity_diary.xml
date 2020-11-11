@@ -102,18 +102,66 @@
                     android:layout_gravity="center"
                     android:textStyle="bold"/>
 
-                <Button
-                    android:id="@+id/calcBMI"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:text="Save and show!"
-                    android:background="#3C3F41"
-                    android:textColor="@color/white"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/calcBMI"
+                        android:layout_width="160dp"
+                        android:layout_height="50dp"
+                        android:background="#fff"
+                        android:text="What's my BMI?"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginBottom="10dp"
+                        style="@style/btnStyle"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/weightInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="placeholder"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/heightInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="placeholder"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/saveDiary"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="What's my BMI?"
+            android:background="#fff"
+            android:textColor="@color/black"
+            android:onClick="save"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/storeData"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="View profile"
+            android:background="#fff"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/calcBMI"
+            android:layout_gravity="center"
+            android:onClick="retrieve"/>
+
 
     </LinearLayout>
 
