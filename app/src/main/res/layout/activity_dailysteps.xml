@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".stepcounter"
+    tools:context=".dailysteps"
     android:id="@+id/drawer_layout">
 
     <com.google.android.material.navigation.NavigationView
@@ -33,21 +33,21 @@
                 android:src="@drawable/menubutton" />
 
             <TextView
-                android:id="@+id/homeTxt"
+                android:id="@+id/stepCounterTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-smallcaps"
                 android:includeFontPadding="false"
-                android:text="Daily Steps"
-                android:textSize="35sp"
-                android:textStyle="bold" />
+                android:text="Step Counter"
+                android:textSize="35dp"
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/textViewDate"
+            android:id="@+id/dateStep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -63,32 +63,31 @@
             android:src="@mipmap/dailystepart"
             android:layout_marginTop="30dp"/>
 
-            <TextView
-                android:id="@+id/stepText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-smallcaps"
-                android:text="Steps"
-                android:textSize="17dp"
-                android:textStyle="bold"
-                android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"/>
+        <TextView
+            android:id="@+id/stepText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Steps"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
 
-            <TextView
-                android:id="@+id/stepCounter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/stepText"
-                android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-smallcaps"
-                android:text="0"
-                android:textSize="100dp"
-                android:textStyle="bold" />
-
+        <TextView
+            android:id="@+id/tv_steps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/stepText"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="0"
+            android:textSize="100dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

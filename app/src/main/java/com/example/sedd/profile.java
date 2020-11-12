@@ -85,7 +85,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
             startActivity(new Intent(profile.this, diary.class));
         }
         else if(item.getItemId() == R.id.nav_tracker){
-            startActivity(new Intent(profile.this, stepcounter.class));
+            startActivity(new Intent(profile.this, dailysteps.class));
         }
         else if(item.getItemId() == R.id.nav_profile){
             startActivity(new Intent(profile.this, profile.class));

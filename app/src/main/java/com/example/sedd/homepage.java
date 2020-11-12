@@ -2,6 +2,7 @@ package com.example.sedd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -95,11 +96,16 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(new Intent(homepage.this, diary.class));
         }
         else if(item.getItemId() == R.id.nav_tracker){
-            startActivity(new Intent(homepage.this, stepcounter.class));
+            startActivity(new Intent(homepage.this, dailysteps.class));
         }
         else if(item.getItemId() == R.id.nav_profile){
             startActivity(new Intent(homepage.this, profile.class));
         }
         return true;
+    }
+
+    public void openWeb(View view){
+        Intent browserIntent = new Intent (Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(browserIntent);
     }
 }

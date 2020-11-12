@@ -157,7 +157,7 @@ public class diary extends AppCompatActivity implements NavigationView.OnNavigat
             startActivity(new Intent(diary.this, diary.class));
         }
         else if(item.getItemId() == R.id.nav_tracker){
-            startActivity(new Intent(diary.this, stepcounter.class));
+            startActivity(new Intent(diary.this, dailysteps.class));
         }
         else if(item.getItemId() == R.id.nav_profile){
             startActivity(new Intent(diary.this, profile.class));
