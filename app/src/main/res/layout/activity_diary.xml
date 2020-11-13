@@ -2,10 +2,10 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".diary"
-    android:id="@+id/drawer_layout">
+    tools:context=".diary">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -42,7 +42,7 @@
                 android:includeFontPadding="false"
                 android:text="Diary"
                 android:textSize="35dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -50,17 +50,17 @@
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DATE"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-smallcaps"
+            android:text="DATE"
             android:textSize="17dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="#b5fff1">
 
@@ -68,95 +68,151 @@
                 android:id="@+id/statBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#45CBB2"
                 android:layout_margin="10dp"
+                android:background="#45CBB2"
                 android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/weightEnter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:ems="10"
-                    android:hint="Weight (kg)"
-                    android:inputType="textEmailAddress"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:layout_margin="10dp"/>
+                    android:hint="Weight (kg)"
+                    android:inputType="textEmailAddress" />
 
                 <EditText
                     android:id="@+id/heightEnter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:ems="10"
-                    android:hint="Height (cm)"
-                    android:inputType="textEmailAddress"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:layout_margin="10dp"/>
+                    android:hint="Height (cm)"
+                    android:inputType="textEmailAddress" />
 
                 <TextView
                     android:id="@+id/bmiOutput"
-                    android:text="(bmi output)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:layout_margin="10dp"
                     android:layout_gravity="center"
-                    android:textStyle="bold"/>
+                    android:layout_margin="10dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="(bmi output)"
+                    android:textStyle="bold" />
 
 
-                    <Button
-                        android:id="@+id/calcBMI"
-                        android:layout_width="160dp"
-                        android:layout_height="50dp"
-                        android:background="#fff"
-                        android:text="What's my BMI?"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="100dp"
-                        android:layout_marginBottom="10dp"
-                        style="@style/btnStyle"
-                        android:layout_gravity="center_horizontal"/>
+                <Button
+                    android:id="@+id/calcBMI"
+                    style="@style/btnStyle"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#fff"
+                    android:text="What's my BMI?"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/weightInfo"
+        <Button
+            android:id="@+id/addFood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="placeholder"
             android:layout_gravity="center"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/food1"
+            android:text="Add" />
 
-        <TextView
-            android:id="@+id/heightInfo"
+        <EditText
+            android:id="@+id/food1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="placeholder"
             android:layout_gravity="center"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Breakfast"
+            android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/saveDiary"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:text="What's my BMI?"
-            android:background="#fff"
-            android:textColor="@color/black"
-            android:onClick="save"
-            android:layout_gravity="center"/>
-
-        <Button
-            android:id="@+id/storeData"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:text="View profile"
-            android:background="#fff"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@id/calcBMI"
+        <EditText
+            android:id="@+id/food2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/food1"
             android:layout_gravity="center"
-            android:onClick="retrieve"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Lunch"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/food3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/food2"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Dinner"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/food4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/food3"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Snacks"
+            android:inputType="textPersonName" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/calorieShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:paddingTop="30dp"
+                android:text="Total Calories: "
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/calorieShow"
+                android:fontFamily="sans-serif-smallcaps"
+                android:paddingTop="30dp"
+                android:text="(placeholder)"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_toRightOf="@id/calories"
+                android:text="kl"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
 
 
     </LinearLayout>

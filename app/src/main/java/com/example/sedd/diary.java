@@ -13,9 +13,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,25 +27,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class diary extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    Button calcBMI, storeData;
-    EditText enterHeight, enterWeight;
-    TextView bmiOutput, dWeight, dHeight;
-    SharedPreferences sharedPreferences;
+    Button calcBMI, addFood;
+    EditText enterHeight, enterWeight, food1, food2, food3, food4;
+    TextView bmiOutput, dWeight, dHeight, calories;
+    private ArrayList<String> items;
+    private ArrayAdapter<String> itemsAdapter;
+    private ListView listView;
 
     ImageView menu_icon;
 
     //Drawer variables
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
-
-    static final String mypreference = "mypref";
-    static final String sWeight = "weightKey";
-    static final String sHeight = "heightKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +62,16 @@ public class diary extends AppCompatActivity implements NavigationView.OnNavigat
         enterHeight = (EditText) findViewById(R.id.heightEnter);
         enterWeight = (EditText) findViewById(R.id.weightEnter);
         bmiOutput = findViewById(R.id.bmiOutput);
-        storeData = findViewById(R.id.storeData);
         dWeight = findViewById(R.id.dWeight);
         dHeight = findViewById(R.id.dHeight);
+
+        //variable pointers for calorie addition
+        addFood = findViewById(R.id.addFood);
+        food1 = findViewById(R.id.food1);
+        food2 = findViewById(R.id.food2);
+        food3 = findViewById(R.id.food3);
+        food4 = findViewById(R.id.food4);
+        calories = findViewById(R.id.calories);
 
         //calls navDrawer function
         navDrawer();
@@ -72,9 +80,6 @@ public class diary extends AppCompatActivity implements NavigationView.OnNavigat
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
         textViewDate.setText(currentDate);
-
-
-        sharedPreferences = getSharedPreferences("NAME", MODE_PRIVATE);
 
         //calculate BMI on button press
         calcBMI.setOnClickListener(new View.OnClickListener() {
@@ -86,41 +91,33 @@ public class diary extends AppCompatActivity implements NavigationView.OnNavigat
 
                 float W = Float.parseFloat(getWeight);
                 float H = Float.parseFloat(getHeight);
-
-                float newH = H/100;
-                float bmi = W/(newH*newH);
+                H = H/100;
+                float bmi = W/(H*H);
 
                 if(bmi<18.5){
-                    bmiOutput.setText("You're BMI is: " + bmi);
+                    bmiOutput.setText("You should eat some more bananas! " + bmi);
                 }else if (bmi>=18.5 && bmi<25){
-                    bmiOutput.setText("You're BMI is: " + bmi);
+                    bmiOutput.setText("Snack on a banana! " + bmi);
                 }else{
-                    bmiOutput.setText("You're BMI is: " + bmi);
+                    bmiOutput.setText("No more bananas for you! " + bmi);
                 }
+            }
+        });
+
+        addFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer temp = Integer.parseInt(food1.getText().toString());
+                Integer temp1 = Integer.parseInt(food2.getText().toString());
+                Integer temp2 = Integer.parseInt(food3.getText().toString());
+                Integer temp3 = Integer.parseInt(food4.getText().toString());
+                Integer temp4 = temp + temp1 + temp2 + temp3;
+                calories.setText(Integer.toString(temp4));
             }
         });
 
     }
 
-    public void save(View view){
-        String weight = enterWeight.getText().toString();
-        String height = enterHeight.getText().toString();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(sWeight, weight);
-        editor.putString(sHeight, height);
-        editor.commit();
-    }
-
-    public void retrieve(View view){
-        sharedPreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
-        if(sharedPreferences.contains(sWeight)){
-            dWeight.setText(sharedPreferences.getString(sWeight, "hi"));
-        }
-        if(sharedPreferences.contains(sHeight)){
-            dWeight.setText(sharedPreferences.getString(sHeight, "45"));
-        }
-
-    }
 
     //Nav drawer functions
     private void navDrawer() {
@@ -139,7 +136,6 @@ public class diary extends AppCompatActivity implements NavigationView.OnNavigat
             }
         });
     }
-
     @Override
     public void onBackPressed(){
         if(drawerLayout.isDrawerVisible(GravityCompat.START)){
@@ -147,7 +143,6 @@ public class diary extends AppCompatActivity implements NavigationView.OnNavigat
         }else
             super.onBackPressed();
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.nav_home){
