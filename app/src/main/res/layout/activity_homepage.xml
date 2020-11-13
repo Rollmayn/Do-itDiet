@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".homepage"
     android:orientation="vertical"
-    android:id="@+id/drawer_layout">
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
